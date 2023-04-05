@@ -10,7 +10,7 @@ const testsRoute = require("./routes/testsRoute");
 const path = require("path");
 
 // middelwares
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // routes
 app.use("/api/user", userRoute);
@@ -20,7 +20,7 @@ app.use("/api/tests", testsRoute);
 
 // rest api
 app.use("*", function (req, res){
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 // PORT

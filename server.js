@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors")
 const app = express();
 require("dotenv").config();
 const dbConfig = require("./config/dbConfig");
@@ -15,7 +14,6 @@ app.use("/api/admin", adminRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("/api/tests", testsRoute);
 
-  
 // PORT
 const port = process.env.PORT || 5000;
 

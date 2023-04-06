@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors")
+// const cors = require("cors")
 const app = express();
 require("dotenv").config();
 const dbConfig = require("./config/dbConfig");
@@ -14,9 +14,10 @@ app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("/api/tests", testsRoute);
-app.use(cors({
-    origin: 'https://foo.com'
-  }));
+// app.use(cors({
+//     origin: 'https://foo.com'
+//   }));
+
 // PORT
 const port = process.env.PORT || 5000;
 

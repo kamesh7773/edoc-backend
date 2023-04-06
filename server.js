@@ -14,9 +14,7 @@ app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("/api/tests", testsRoute);
-app.use(cors({
-    origin: 'https://happy-gear-crow.cyclic.app'
-  }));
+
   
 // PORT
 const port = process.env.PORT || 5000;

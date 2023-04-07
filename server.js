@@ -11,7 +11,7 @@ const testsRoute = require("./routes/testsRoute");
 
 // routes
 app.use(Cors({
-    origin: 'https://cool-fenglisu-67a71c.netlify.app'
+    origin: 'http://localhost:3000'
 }))
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);

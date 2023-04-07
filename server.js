@@ -11,7 +11,7 @@ const testsRoute = require("./routes/testsRoute");
 
 // routes
 app.use(Cors({
-    origin: 'https://elegant-tan-goldfish.cyclic.app/'
+    origin: 'https://elegant-tan-goldfish.cyclic.app'
 }))
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);

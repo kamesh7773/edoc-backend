@@ -10,9 +10,13 @@ const doctorRoute = require("./routes/doctorsRoute");
 const testsRoute = require("./routes/testsRoute");
 
 // routes
-app.use(Cors({
-    origin: 'http://localhost:3000'
-}))
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/doctor", doctorRoute);

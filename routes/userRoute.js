@@ -77,9 +77,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ---------------------------------------------------------------------------------------------
-// API is used in forgot password this API is called when user enter his registerd email address
-// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------
+// API is called when user enter his registerd email address
+// ---------------------------------------------------------
 
 router.post("/finding-registered-email-id", async (req, res) => {
   try {

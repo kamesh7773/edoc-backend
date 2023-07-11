@@ -5,6 +5,12 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const Appointment = require("../models/appointmentModel");
 const User = require("../models/userModel");
 
+
+// -------------------------------------------------------
+// This API help us to fetch Specific doctor by user id
+// -------------------------------------------------------
+
+
 router.post("/get-doctor-info-by-user-id", authMiddleware, async (req, res) => {
   try {
     const doctor = await Doctor.findOne({ userId: req.body.userId });
@@ -20,6 +26,12 @@ router.post("/get-doctor-info-by-user-id", authMiddleware, async (req, res) => {
   }
 });
 
+
+// -----------------------------------------------
+// This API help us to fetch Specific doctor by id
+// -----------------------------------------------
+
+
 router.post("/get-doctor-info-by-id", authMiddleware, async (req, res) => {
   try {
     const doctor = await Doctor.findOne({ _id: req.body.doctorId });
@@ -34,6 +46,12 @@ router.post("/get-doctor-info-by-id", authMiddleware, async (req, res) => {
       .send({ message: "Error getting doctor info", success: false, error });
   }
 });
+
+
+// ---------------------------------------------------------------
+// This API help us to Update the Doctor model (Data) in Database
+// ---------------------------------------------------------------
+
 
 router.post("/update-doctor-profile", authMiddleware, async (req, res) => {
   try {
@@ -52,6 +70,10 @@ router.post("/update-doctor-profile", authMiddleware, async (req, res) => {
       .send({ message: "Error getting doctor info", success: false, error });
   }
 });
+
+// ---------------------------------------------------------------
+// This API help us to fetch the Appointment of Specific doctor
+// ---------------------------------------------------------------
 
 router.get( "/get-appointments-by-doctor-id", authMiddleware, async (req, res) => {
     try {
@@ -72,6 +94,10 @@ router.get( "/get-appointments-by-doctor-id", authMiddleware, async (req, res) =
     }
   }
 );
+
+// --------------------------------------------------------
+// This API helps in changing the user Appointment status
+// --------------------------------------------------------
 
 router.post("/change-appointment-status", authMiddleware, async (req, res) => {
   try {

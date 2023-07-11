@@ -3,7 +3,13 @@ const router = express.Router();
 const User = require("../models/userModel");
 const Doctor = require("../models/doctorModel");
 const Tests = require("../models/testsModel");
+const Appointments = require("../models/appointmentModel");
 const authMiddleware = require("../middlewares/authMiddleware");
+
+
+// -----------------------------------------------------------
+// This API help us to fetch the All Doctors data from backend
+// -----------------------------------------------------------
 
 router.get("/get-all-doctors", authMiddleware, async (req, res) => {
   try {
@@ -23,7 +29,9 @@ router.get("/get-all-doctors", authMiddleware, async (req, res) => {
   }
 });
 
-
+// -----------------------------------------------------------
+// This API help us to fetch the All Users data from backend
+// -----------------------------------------------------------
 
 router.get("/get-all-users", authMiddleware, async (req, res) => {
   try {
@@ -42,6 +50,30 @@ router.get("/get-all-users", authMiddleware, async (req, res) => {
     });
   }
 });
+
+// ----------------------------------------------------------
+// This API used for fecthing all the Appoiments form backend
+// ----------------------------------------------------------
+
+router.get( "/get-all-appointments", authMiddleware, async (req, res) => {
+  try {
+    const appointments = await Appointments.find({});
+    res.status(200).send({
+      message: "Appointments fetched successfully",
+      success: true,
+      data: appointments,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error fetching appointments",
+      success: false,
+      error,
+    });
+  }
+}
+);
+
 
 // -------------------------------------------------------------------------
 // API for changing the doctor account status ( approved , block , unblock )
